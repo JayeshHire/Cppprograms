@@ -1,2 +1,2 @@
 # Cppprograms
-here are some of my programes peerformed in OOPS lab
+here are some of my programes performed in OOPS lab
