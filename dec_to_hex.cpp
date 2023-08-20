@@ -1,88 +1,50 @@
 #include <iostream>
+#define HEX '1',\
+ '2',\
+  '3',\
+   '4',\
+   '5',\
+    '6',\
+	 '7',\
+	  '8',\
+	   '9',\
+	    'A',\
+		 'B',\
+		 'C',\
+		  'D',\
+		   'E',\
+		    'F'
 using namespace std;
 
-
-//function to convert integer to string
-string int2string(int ,int);
-class bin {
-	int dec;
-	string c ;
-	public:
-	
-	//default constructor
-	bin(){
-		dec = 1;
-		c = dec_to_bin(dec);
-		}
-		
-	bin(int a){
-		dec = a;
-		c = dec_to_bin(dec);
-		
-	}
-	
-	//function converting decimal to binary
-	string dec_to_bin(int x){
-	int flag = 0;
-	int divisor , rem ;
-	string binary = "";
-	divisor = x;
-	
-	while(1){
-		rem = divisor%2;
-		divisor /= 2;
-		string rem_str = int2string(rem, 10);
-		binary += rem_str;
-		if (divisor == 0)
-		break;
-		
-	}
-	return binary;
-	}
-	
-	
-	
-	//checking the size of binary
-	int sizeofbin(){
-		int size = 0;
-		while(1){
-			if (c[size] == '\0')
-			break;
-			size ++ ;
-		}
-		return size;
-		}
-	
-	//functional overloading	
-	int sizeofbin(bin A){
-		int size = 0;
-		while(1){
-			if (A.c[size] == '\0')
-			break;
-			size ++ ;
-		}
-		return size;
-		}
-
-};
-
-
-
-//function for converting 4 bit binary to hex
-char bin4_2_hex(bin );
 
 //function for string reversal
 string rstring(string);
 
+//function for converting decimal to hexadecimal value
+string dec2hex(int dec); //takes positive integer as an input
+
+
 int main(){
-	bin A(4);
-	string d = int2string(423,100);
-	string c = rstring(d);
-	cout << d;
-	cout << endl  << c;
+	string hex = dec2hex(65535);
+	cout << "Hex value is :"<<hex;
 	return 0;
 }
 
+
+string dec2hex(int dec){
+	char hex_ref [] = { HEX };
+	string initial_hex = "";
+	int rem ;
+	int divident = dec;
+	while (divident != 0){
+		rem = divident%16;
+		divident /= 16;
+		initial_hex.push_back(hex_ref[rem - 1]);
+		
+	}
+	string hex = rstring(initial_hex);
+	return hex;
+}
 
 //function tested
 //function to convert integer to string
